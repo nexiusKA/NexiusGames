@@ -402,46 +402,32 @@ body {
 .game-card.game-card--electric:hover {
   transition: transform var(--transition);
   border-color: #00e5ff;
-  animation: electric-zap 0.18s linear infinite;
+  animation: electric-zap 2.5s ease-in-out infinite;
 }
 
 .game-card.game-card--electric:hover .card-icon {
-  animation: electric-icon-shake 0.1s linear infinite;
+  animation: electric-icon-pulse 2s ease-in-out infinite;
 }
 
 @keyframes electric-zap {
   0%   {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 0 20px rgba(0,229,255,0.7),  0 0 55px rgba(0,229,255,0.3);
+    box-shadow: 0 0 18px rgba(0,229,255,0.5), 0 0 45px rgba(0,229,255,0.2);
   }
-  20%  {
-    transform: translateY(-9px) scale(1.02);
-    box-shadow: 0 0 45px rgba(255,255,255,0.9), 0 0 95px rgba(0,229,255,0.55);
-  }
-  40%  {
-    transform: translateY(-8px) scale(1.015);
-    box-shadow: 0 0 12px rgba(0,229,255,0.45), 0 0 38px rgba(0,229,255,0.2);
-  }
-  60%  {
+  50%  {
     transform: translateY(-8px) scale(1.025);
-    box-shadow: 0 0 38px rgba(180,255,255,0.85), 0 0 85px rgba(0,229,255,0.5);
-  }
-  80%  {
-    transform: translateY(-9px) scale(1.02);
-    box-shadow: 0 0 10px rgba(0,229,255,0.35), 0 0 30px rgba(0,229,255,0.15);
+    box-shadow: 0 0 40px rgba(0,229,255,0.85), 0 0 80px rgba(0,229,255,0.45);
   }
   100% {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 0 20px rgba(0,229,255,0.7),  0 0 55px rgba(0,229,255,0.3);
+    box-shadow: 0 0 18px rgba(0,229,255,0.5), 0 0 45px rgba(0,229,255,0.2);
   }
 }
 
-@keyframes electric-icon-shake {
-  0%   { transform: scale(1.15) rotate(-5deg) translate(0,   0);   }
-  25%  { transform: scale(1.18) rotate(-7deg) translate(1px, -1px); }
-  50%  { transform: scale(1.14) rotate(-3deg) translate(-1px, 1px); }
-  75%  { transform: scale(1.17) rotate(-6deg) translate(1px,  0);   }
-  100% { transform: scale(1.15) rotate(-5deg) translate(0,   0);   }
+@keyframes electric-icon-pulse {
+  0%   { transform: scale(1.13) rotate(-5deg); }
+  50%  { transform: scale(1.18) rotate(-5deg); }
+  100% { transform: scale(1.13) rotate(-5deg); }
 }
 
 /* ===== REDUCED-MOTION ACCESSIBILITY ===== */
