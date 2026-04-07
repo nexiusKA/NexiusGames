@@ -21,27 +21,11 @@
 
   <main class="game-grid">
 
-    <a class="game-card" href="https://nexiuska.github.io/Catch-the-Chaos/" target="_blank" rel="noopener noreferrer">
-      <div class="card-glow glow-red"></div>
-      <div class="card-icon">🌀</div>
-      <h2 class="card-title">Catch the Chaos</h2>
-      <p class="card-desc">Reflexes put to the test — catch everything before chaos takes over!</p>
-      <span class="card-btn">Play Now</span>
-    </a>
-
     <a class="game-card" href="https://nexiuska.github.io/Marble-Speed-Run/" target="_blank" rel="noopener noreferrer">
       <div class="card-glow glow-blue"></div>
       <div class="card-icon">🔵</div>
-      <h2 class="card-title">Marble Speed Run</h2>
+      <h2 class="card-title">Marble Rush</h2>
       <p class="card-desc">Guide your marble through insane tracks at breakneck speed. Every second counts.</p>
-      <span class="card-btn">Play Now</span>
-    </a>
-
-    <a class="game-card" href="https://nexiuska.github.io/TowerFartDefense/" target="_blank" rel="noopener noreferrer">
-      <div class="card-glow glow-green"></div>
-      <div class="card-icon">💨</div>
-      <h2 class="card-title">Tower Fart Defense</h2>
-      <p class="card-desc">Tower defense… with farts. The stinkiest strategy game you'll ever play.</p>
       <span class="card-btn">Play Now</span>
     </a>
 
@@ -54,6 +38,49 @@
     </a>
 
   </main>
+
+  <div class="fart-cloud-wrap" id="fartCloudWrap">
+    <button class="fart-cloud-btn" id="fartCloudBtn" aria-expanded="false" aria-controls="hiddenGames">
+      <span class="fart-cloud-icon">💨</span>
+      <span class="fart-cloud-label">What's hiding in the cloud?</span>
+    </button>
+  </div>
+
+  <div class="hidden-games" id="hiddenGames" aria-hidden="true">
+    <main class="game-grid game-grid--hidden">
+
+      <a class="game-card" href="https://nexiuska.github.io/Catch-the-Chaos/" target="_blank" rel="noopener noreferrer">
+        <div class="card-glow glow-red"></div>
+        <div class="card-icon">🌀</div>
+        <h2 class="card-title">Catch the Chaos</h2>
+        <p class="card-desc">Reflexes put to the test — catch everything before chaos takes over!</p>
+        <span class="card-btn">Play Now</span>
+      </a>
+
+      <a class="game-card" href="https://nexiuska.github.io/TowerFartDefense/" target="_blank" rel="noopener noreferrer">
+        <div class="card-glow glow-green"></div>
+        <div class="card-icon">💨</div>
+        <h2 class="card-title">Tower Fart Defense</h2>
+        <p class="card-desc">Tower defense… with farts. The stinkiest strategy game you'll ever play.</p>
+        <span class="card-btn">Play Now</span>
+      </a>
+
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('fartCloudBtn');
+      var panel = document.getElementById('hiddenGames');
+      btn.addEventListener('click', function () {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        panel.setAttribute('aria-hidden', String(expanded));
+        panel.classList.toggle('hidden-games--visible', !expanded);
+        btn.classList.toggle('fart-cloud-btn--open', !expanded);
+      });
+    })();
+  </script>
 
   <footer class="site-footer">
     <p>Made with ❤️ by <a href="https://github.com/nexiusKA" target="_blank" rel="noopener noreferrer">nexiusKA</a></p>

@@ -194,6 +194,77 @@ body {
   transform: scale(1.05);
 }
 
+/* ===== FART CLOUD TOGGLE ===== */
+.fart-cloud-wrap {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem auto 2rem;
+}
+
+.fart-cloud-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  padding: 0.7rem 1.8rem;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition), color var(--transition), box-shadow var(--transition);
+}
+
+.fart-cloud-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: var(--text);
+  box-shadow: 0 0 20px rgba(255, 200, 0, 0.2);
+}
+
+.fart-cloud-icon {
+  font-size: 1.5rem;
+  animation: fart-wiggle 2s ease-in-out infinite;
+}
+
+.fart-cloud-btn--open .fart-cloud-icon {
+  animation: none;
+  transform: rotate(180deg);
+  display: inline-block;
+}
+
+@keyframes fart-wiggle {
+  0%, 100% { transform: rotate(-8deg) scale(1); }
+  50%       { transform: rotate(8deg) scale(1.15); }
+}
+
+/* ===== HIDDEN GAMES PANEL ===== */
+.hidden-games {
+  display: none;
+  opacity: 0;
+  transform: translateY(-12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.hidden-games--visible {
+  display: block;
+  animation: reveal-panel 0.4s ease forwards;
+}
+
+@keyframes reveal-panel {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.game-grid--hidden {
+  margin-top: 0;
+}
+
 /* ===== FOOTER ===== */
 .site-footer {
   position: relative;
