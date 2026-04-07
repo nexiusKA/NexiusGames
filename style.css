@@ -22,7 +22,10 @@
   --transition: 0.3s ease;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
 body {
   font-family: 'Segoe UI', system-ui, sans-serif;
@@ -200,7 +203,8 @@ body {
   z-index: 10;
   display: flex;
   justify-content: center;
-  margin: 0.5rem auto 2rem;
+  width: 100%;
+  margin: 0.5rem 0 2rem;
 }
 
 .fart-cloud-btn {
