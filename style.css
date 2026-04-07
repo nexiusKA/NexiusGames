@@ -398,36 +398,34 @@ body {
   box-shadow: 0 0 10px rgba(120, 0, 240, 0.45);
 }
 
-/* ===== ELECTRIC CARD (Beware of the Robots) ===== */
-.game-card.game-card--electric:hover {
-  transition: transform var(--transition);
-  border-color: #00e5ff;
-  animation: electric-zap 2.5s ease-in-out infinite;
+/* Electrified underline on Marble Rush card title */
+.game-card--void .card-title {
+  position: relative;
+  padding-bottom: 0.45rem;
 }
 
-.game-card.game-card--electric:hover .card-icon {
-  animation: electric-icon-pulse 2s ease-in-out infinite;
+.game-card--void .card-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), #a855f7, var(--accent), transparent);
+  border-radius: 1px;
+  animation: void-underline-pulse 2.5s ease-in-out infinite;
 }
 
-@keyframes electric-zap {
-  0%   {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 0 18px rgba(0,229,255,0.5), 0 0 45px rgba(0,229,255,0.2);
+@keyframes void-underline-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    box-shadow: 0 0 4px rgba(124, 58, 237, 0.5);
   }
-  50%  {
-    transform: translateY(-8px) scale(1.025);
-    box-shadow: 0 0 40px rgba(0,229,255,0.85), 0 0 80px rgba(0,229,255,0.45);
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(124, 58, 237, 0.9), 0 0 20px rgba(124, 58, 237, 0.4);
   }
-  100% {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 0 18px rgba(0,229,255,0.5), 0 0 45px rgba(0,229,255,0.2);
-  }
-}
-
-@keyframes electric-icon-pulse {
-  0%   { transform: scale(1.13) rotate(-5deg); }
-  50%  { transform: scale(1.18) rotate(-5deg); }
-  100% { transform: scale(1.13) rotate(-5deg); }
 }
 
 /* ===== REDUCED-MOTION ACCESSIBILITY ===== */
@@ -450,15 +448,8 @@ body {
     transform: scale(1.15) rotate(-5deg);
   }
 
-  .game-card.game-card--electric:hover {
+  .game-card--void .card-title::after {
     animation: none;
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 0 30px rgba(0, 229, 255, 0.6), 0 0 60px rgba(0, 229, 255, 0.3);
-    border-color: #00e5ff;
-  }
-
-  .game-card.game-card--electric:hover .card-icon {
-    animation: none;
-    transform: scale(1.15) rotate(-5deg);
+    opacity: 0.8;
   }
 }
