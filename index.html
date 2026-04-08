@@ -19,6 +19,31 @@
     <p class="tagline">Level up. Play more. Go wild.</p>
   </header>
 
+  <section class="countdown-wrap" aria-label="Next release countdown">
+    <p class="countdown-label">⚡ Next Release In</p>
+    <div class="countdown" id="countdown">
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cd-days">00</span>
+        <span class="countdown-unit-label">Days</span>
+      </div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cd-hours">00</span>
+        <span class="countdown-unit-label">Hours</span>
+      </div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cd-minutes">00</span>
+        <span class="countdown-unit-label">Minutes</span>
+      </div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cd-seconds">00</span>
+        <span class="countdown-unit-label">Seconds</span>
+      </div>
+    </div>
+  </section>
+
   <main class="game-grid">
 
     <a class="game-card game-card--void" href="https://nexiuska.github.io/Marble-Speed-Run/" target="_blank" rel="noopener noreferrer">
@@ -86,6 +111,37 @@
   <footer class="site-footer">
     <p>Made with ❤️ by <a href="https://github.com/nexiusKA" target="_blank" rel="noopener noreferrer">nexiusKA</a></p>
   </footer>
+
+  <script>
+    (function () {
+      var target = new Date('2026-04-18T09:15:11');
+      var days    = document.getElementById('cd-days');
+      var hours   = document.getElementById('cd-hours');
+      var minutes = document.getElementById('cd-minutes');
+      var seconds = document.getElementById('cd-seconds');
+
+      function pad(n) { return String(n).padStart(2, '0'); }
+
+      function tick() {
+        var diff = target - Date.now();
+        if (diff <= 0) {
+          days.textContent    = '00';
+          hours.textContent   = '00';
+          minutes.textContent = '00';
+          seconds.textContent = '00';
+          return;
+        }
+        var s = Math.floor(diff / 1000);
+        days.textContent    = pad(Math.floor(s / 86400));
+        hours.textContent   = pad(Math.floor((s % 86400) / 3600));
+        minutes.textContent = pad(Math.floor((s % 3600) / 60));
+        seconds.textContent = pad(s % 60);
+      }
+
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
 
   <script src="starfield.js"></script>
 </body>
