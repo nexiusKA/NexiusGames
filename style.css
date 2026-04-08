@@ -649,6 +649,14 @@ body {
   box-shadow: 0 0 10px rgba(0, 200, 255, 0.35);
 }
 
+.card-badge--robot {
+  color: #67e8f9;
+  background: rgba(0, 15, 30, 0.92);
+  border-color: rgba(0, 160, 200, 0.7);
+  box-shadow: 0 0 8px rgba(0, 200, 255, 0.5), inset 0 0 6px rgba(0, 120, 180, 0.2);
+  text-shadow: 0 0 6px rgba(0, 200, 255, 0.8);
+}
+
 .card-badge--alpha {
   color: #ff8fa3;
   background: rgba(80, 0, 20, 0.85);
