@@ -509,6 +509,41 @@ body {
   }
 }
 
+/* ===== STATUS BADGES (Alpha / Early Access) ===== */
+.card-badge {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid;
+}
+
+.card-badge--early-access {
+  color: #c084fc;
+  background: rgba(40, 0, 80, 0.85);
+  border-color: rgba(140, 50, 255, 0.5);
+  box-shadow: 0 0 10px rgba(120, 0, 240, 0.45);
+}
+
+.card-badge--alpha {
+  color: #ff8fa3;
+  background: rgba(80, 0, 20, 0.85);
+  border-color: rgba(255, 62, 94, 0.5);
+  box-shadow: 0 0 10px rgba(255, 62, 94, 0.35);
+}
+
+.card-badge--pre-alpha {
+  color: #6effd8;
+  background: rgba(0, 50, 30, 0.85);
+  border-color: rgba(0, 255, 170, 0.4);
+  box-shadow: 0 0 10px rgba(0, 255, 170, 0.3);
+}
+
 /* ===== REDUCED-MOTION ACCESSIBILITY ===== */
 @media (prefers-reduced-motion: reduce) {
   .countdown-sep {
