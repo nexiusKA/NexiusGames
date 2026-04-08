@@ -85,6 +85,15 @@
         <span class="card-btn">Play Now</span>
       </a>
 
+      <div class="game-card" id="stinkrCard" role="button" tabindex="0" aria-label="Stinkr — Coming Soon">
+        <div class="card-glow glow-yellow"></div>
+        <span class="card-badge card-badge--coming-soon">Coming Soon</span>
+        <div class="card-icon">🦨</div>
+        <h2 class="card-title">Stinkr</h2>
+        <p class="card-desc">Something foul is brewing… the stinkiest game in the cloud is almost here.</p>
+        <span class="card-btn">Play Now</span>
+      </div>
+
       <a class="game-card" href="https://nexiuska.github.io/TowerFartDefense/" target="_blank" rel="noopener noreferrer">
         <div class="card-glow glow-green"></div>
         <span class="card-badge card-badge--pre-alpha">Pre Alpha</span>
@@ -147,5 +156,78 @@
   </script>
 
   <script src="starfield.js"></script>
+
+  <script>
+    (function () {
+      var card = document.getElementById('stinkrCard');
+
+      function getCountdown() {
+        return {
+          days:    document.getElementById('cd-days').textContent,
+          hours:   document.getElementById('cd-hours').textContent,
+          minutes: document.getElementById('cd-minutes').textContent,
+          seconds: document.getElementById('cd-seconds').textContent
+        };
+      }
+
+      function showOverlay() {
+        var c = getCountdown();
+
+        var overlay = document.createElement('div');
+        overlay.className = 'coming-soon-overlay';
+        overlay.setAttribute('role', 'dialog');
+        overlay.setAttribute('aria-modal', 'true');
+        overlay.setAttribute('aria-label', 'Stinkr — Not Available Yet');
+
+        overlay.innerHTML =
+          '<div class="coming-soon-dialog">' +
+            '<div class="coming-soon-icon">🦨</div>' +
+            '<p class="coming-soon-title">Not Available Yet</p>' +
+            '<p class="coming-soon-msg">Stinkr is still brewing… check back when the countdown hits zero!</p>' +
+            '<div class="coming-soon-countdown">' +
+              '<div class="countdown-unit"><span class="countdown-num" id="cs-days">' + c.days + '</span><span class="countdown-unit-label">Days</span></div>' +
+              '<span class="countdown-sep">:</span>' +
+              '<div class="countdown-unit"><span class="countdown-num" id="cs-hours">' + c.hours + '</span><span class="countdown-unit-label">Hours</span></div>' +
+              '<span class="countdown-sep">:</span>' +
+              '<div class="countdown-unit"><span class="countdown-num" id="cs-minutes">' + c.minutes + '</span><span class="countdown-unit-label">Minutes</span></div>' +
+              '<span class="countdown-sep">:</span>' +
+              '<div class="countdown-unit"><span class="countdown-num" id="cs-seconds">' + c.seconds + '</span><span class="countdown-unit-label">Seconds</span></div>' +
+            '</div>' +
+            '<button class="coming-soon-close" id="csClose">Got it</button>' +
+          '</div>';
+
+        document.body.appendChild(overlay);
+
+        var ticker = setInterval(function () {
+          var u = getCountdown();
+          var ds = document.getElementById('cs-days');
+          if (!ds) { clearInterval(ticker); return; }
+          ds.textContent = u.days;
+          document.getElementById('cs-hours').textContent   = u.hours;
+          document.getElementById('cs-minutes').textContent = u.minutes;
+          document.getElementById('cs-seconds').textContent = u.seconds;
+        }, 1000);
+
+        function close() {
+          clearInterval(ticker);
+          document.body.removeChild(overlay);
+        }
+
+        document.getElementById('csClose').addEventListener('click', close);
+        overlay.addEventListener('click', function (e) {
+          if (e.target === overlay) close();
+        });
+        overlay.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') close();
+        });
+        document.getElementById('csClose').focus();
+      }
+
+      card.addEventListener('click', showOverlay);
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showOverlay(); }
+      });
+    })();
+  </script>
 </body>
 </html>
