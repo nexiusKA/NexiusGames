@@ -90,28 +90,6 @@ body {
   margin-top: 0.25rem;
 }
 
-/* ===== BREWING BANNER ===== */
-.brewing-wrap {
-  position: relative;
-  z-index: 10;
-  text-align: center;
-  padding: 1.5rem 1rem 0.5rem;
-}
-
-.brewing-msg {
-  display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--muted);
-  background: var(--surface);
-  border: 1px solid rgba(124, 58, 237, 0.25);
-  border-radius: var(--radius);
-  padding: 0.75rem 1.75rem;
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.08);
-}
-
 /* ===== COUNTDOWN ===== */
 .countdown-wrap {
   position: relative;
