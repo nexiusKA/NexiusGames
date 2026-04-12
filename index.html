@@ -19,10 +19,6 @@
     <p class="tagline">No limits - Just play</p>
   </header>
 
-  <section class="brewing-wrap" aria-label="Daily motivation">
-    <p class="brewing-msg" id="dailyQuote"></p>
-  </section>
-
   <main class="game-grid">
 
     <a class="game-card game-card--void" href="https://nexiuska.github.io/Marble-Speed-Run/" target="_blank" rel="noopener noreferrer">
@@ -84,30 +80,6 @@
 
     </main>
   </div>
-
-  <script>
-    (function () {
-      var quotes = [
-        '🚀 Great games start with a single line of code.',
-        '🔥 Level up every single day.',
-        '🎮 Play hard. Build harder.',
-        '⚡ The next big game starts in your imagination.',
-        '🌟 Every expert was once a beginner — keep going.',
-        '💡 Ideas are the fuel. Execution is the engine.',
-        '🏆 Champions are made between sessions, not during them.',
-        '🎯 Focus on progress, not perfection.',
-        '🌌 The universe of possibilities is infinite — start exploring.',
-        '💪 Push through the hard levels. The boss fight is worth it.',
-        '🛠️ Build something today that your future self will thank you for.',
-        '✨ Small steps every day lead to legendary results.',
-        '🧠 The best cheat code is consistent effort.',
-        '🎲 Take the risk — the high score never goes to the player who never tries.',
-        '🌠 Dream big. Ship bigger.'
-      ];
-      var dayIndex = Math.floor(Date.now() / 86400000) % quotes.length;
-      document.getElementById('dailyQuote').textContent = quotes[dayIndex];
-    })();
-  </script>
 
   <script>
     (function () {
